@@ -22,6 +22,49 @@ axios.get(`${BASE_URL}/new/draw/?count=1`)
 let deckId;
 
 /**
+ * Creates an HTML playing card for display
+ * @param {string} value The value of the card
+ * @param {string} suit The suit of the card
+ * @return {string} HTML for playing card
+ */
+function generateCard(value, suit) {
+  // get char that represents value
+  switch(value) {
+    case "JACK":
+      value = "j";
+      break;
+    case "QUEEN":
+      value = "q";
+      break;
+    case "KING":
+      value = "k";
+      break;
+    case "ACE":
+      value = "a";
+      break;
+    default:
+      value = value;
+      break;
+  }
+  // get string for representing suit in HTML
+  switch(suit) {
+    case "DIAMONDS":
+      suit = "diams";
+      break;
+    default:
+      suit = suit.toLowerCase();
+      break;
+  }
+
+  return `
+    <div class="card rank-${value} ${suit}">
+      <span class="rank">${value.toUpperCase()}</span>
+      <span class="suit">&${suit};</span>
+    </div>
+  `
+}
+
+/**
  * Draws a card from deck with id deckId
  */
 function drawCard() {
@@ -29,7 +72,8 @@ function drawCard() {
     .then(res => {
       value = res.data.cards[0].value;
       suit = res.data.cards[0].suit;
-      console.log(`${value} of ${suit}`);
+      const $newCard = $(generateCard(value, suit));
+      $("#cards").append($newCard);
     })
     .catch(err => console.log(err));
 }
