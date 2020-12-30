@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deck of Cards</title>
+    <link href="cards.css" rel="stylesheet">
     <link
       href=
         "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
@@ -14,11 +15,16 @@
     >
   </head>
   <body>
-    <div class="container d-flex justify-content-center">
+    <div class="container d-flex flex-column justify-content-center">
       <button id="btn-draw-card" class="btn btn-secondary m-3">
         GIMME A CARD!
       </button>
-      <div id="cards"></div>
+      <div id="cards" class="playingCards">
+        <div class="card rank-7 spades">
+          <span class="rank">10</span>
+          <span class="suit">&spades;</span>
+        </div>
+      </div>
     </div>
     <script
       src="https://code.jquery.com/jquery-3.5.1.js"
