@@ -15,14 +15,17 @@
     >
   </head>
   <body>
-    <div class="container d-flex flex-column justify-content-center">
-      <button id="btn-draw-card" class="btn btn-secondary m-3">
-        GIMME A CARD!
-      </button>
-      <div id="cards" class="playingCards">
-        <div class="card rank-7 spades">
-          <span class="rank">10</span>
-          <span class="suit">&spades;</span>
+    <div class="container">
+      <div class="row">
+        <div class="col-4 mx-auto">
+          <button id="btn-draw-card" class="btn btn-secondary my-3">
+            GIMME A CARD!
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="playingCards col-6 mx-auto">
+          <ul id="cards" class="hand"></ul>
         </div>
       </div>
     </div>

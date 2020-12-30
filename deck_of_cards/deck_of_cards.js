@@ -72,7 +72,7 @@ function drawCard() {
     .then(res => {
       value = res.data.cards[0].value;
       suit = res.data.cards[0].suit;
-      const $newCard = $(generateCard(value, suit));
+      const $newCard = $(`<li>${generateCard(value, suit)}</li>`);
       $("#cards").append($newCard);
     })
     .catch(err => console.log(err));
